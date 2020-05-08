@@ -3,9 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+export const UserContext = React.createContext();
+
+const username = 'Dave';
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <UserContext.Provider value={username}>
+      <App />
+    </UserContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
