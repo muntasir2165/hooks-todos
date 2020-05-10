@@ -22,13 +22,13 @@ export default function reducer(state, action) {
       );
       return { ...state, todos: toggledTodos };
     case 'UPDATE_TODO':
-      if (!action.payload) {
-        return { ...state, currentTodo: {} };
-      }
-      if (state.todos.findIndex((t) => t.text === action.payload) > -1) {
-        return { ...state, currentTodo: {} };
-      }
-      const updatedTodo = { ...state.currentTodo, text: action.payload };
+      // if (!action.payload) {
+      //   return { ...state, currentTodo: {} };
+      // }
+      // if (state.todos.findIndex((t) => t.text === action.payload) > -1) {
+      //   return { ...state, currentTodo: {} };
+      // }
+      const updatedTodo = { ...action.payload };
       const updatedTodoIndex = state.todos.findIndex(
         (t) => t.id === state.currentTodo.id
       );

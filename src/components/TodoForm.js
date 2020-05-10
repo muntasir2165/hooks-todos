@@ -22,7 +22,11 @@ export default function TodoForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (currentTodo.text) {
-      dispatch({ type: 'UPDATE_TODO', payload: todo });
+      const response = await axios.patch(
+        `https://hooks-api-master.muntasir2165.now.sh/todos/${currentTodo.id}`,
+        { text: todo }
+      );
+      dispatch({ type: 'UPDATE_TODO', payload: response.data });
     } else {
       const response = await axios.post(
         'https://hooks-api-master.muntasir2165.now.sh/todos',
