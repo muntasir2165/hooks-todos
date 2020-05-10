@@ -9,8 +9,11 @@ export default function TodoForm() {
   } = useContext(TodosContext);
 
   useEffect(() => {
+    // console.log('inside useEffect()');
     if (currentTodo.text) {
       setTodo(currentTodo.text);
+    } else {
+      setTodo('');
     }
   }, [currentTodo.id]);
 
